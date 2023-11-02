@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 3
     agentTypeID: 0
-    agentRadius: 66
+    agentRadius: 2
     agentHeight: 2
     agentSlope: 0
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 22
+    cellSize: 0.6666667
     manualTileSize: 0
     tileSize: 256
     buildHeightMesh: 0
@@ -281,7 +281,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 665242543}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.02
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 99
@@ -457,7 +457,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 99
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c0b1ed0bdfdc04eaa683039c109a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sensitivity: 1
+  m_sensitivity: 2
 --- !u!850595691 &1214585223
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -682,8 +682,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9528302, g: 0.7763285, b: 0.56181026, a: 1}
-  m_Intensity: 1
-  m_Range: 50
+  m_Intensity: 2
+  m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -693,7 +693,7 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.042
-    m_NormalBias: 0.4
+    m_NormalBias: 0.3
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
