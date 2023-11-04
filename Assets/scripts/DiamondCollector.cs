@@ -2,37 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class DiamondCollector : MonoBehaviour
 {
-    public int targetScore = 4; // Целевое количество алмазов
-    private static int diamondCount = 0; // Счетчик собранных алмазов
-    public HUDManager hudManager; // Ссылка на компонент HUDManager
+    private int collectedDiamonds = 0;
+    public TextMeshProUGUI diamondsText;
+ // Ссылка на компонент TextMeshPro в инспекторе
+
+    private void Start()
+    {
+        UpdateDiamondsText();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Предполагается, что игрок имеет тег "Player"
+        if (other.CompareTag("Player")) // Предполагается, что у игрока установлен тег "Player"
         {
             // Удалите алмаз после сбора
             Destroy(gameObject);
+            collectedDiamonds++;
 
-            // Увеличиваем счетчик собранных алмазов
-            diamondCount++;
+            UpdateDiamondsText();
 
-            // Проверяем, достиг ли игрок целевого количества очков
-            if (diamondCount >= targetScore)
+            if (collectedDiamonds >= 4)
             {
-                // Уровень завершен
-                // Здесь вы можете вызвать функцию сохранения данных о прохождении уровня
-                SaveLevelProgress();
+                // Вы собрали 4 алмаза, переключение на сцену меню
+                // Замените "MenuScene" на имя вашей сцены меню.
+                UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
             }
-
-            // Обновляем текст в HUD
-            hudManager.UpdateProgress(diamondCount, targetScore);
         }
     }
 
-    // Дополнительные функции могут быть добавлены для сохранения данных о прохождении уровня и другой логики, связанной с прохождением уровня.
+    private void UpdateDiamondsText()
+    {
+        if (diamondsText != null)
+        {
+            diamondsText.text = "Алмазы: " + collectedDiamonds.ToString();
+        }
+    }
+
+    // Можно добавить дополнительные функции для сохранения прогресса уровня
     private void SaveLevelProgress()
     {
         // Реализуйте сохранение данных о прохождении уровня здесь

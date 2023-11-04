@@ -57,11 +57,7 @@ public class Tile_generator : MonoBehaviour
                     diamond.transform.position = diamondPos;
 
                     // Назначаем скрипт DiamondCollector к алмазу
-                    DiamondCollector diamondCollector = diamond.AddComponent<DiamondCollector>();
-                    diamondCollector.targetScore = targetScore; // Передаем целевое количество очков
-
-                    // Увеличиваем целевое количество очков
-                    targetScore++;
+                   
                 }
             }
         }
@@ -108,11 +104,7 @@ public class Tile_generator : MonoBehaviour
                         diamond.transform.position = diamondPos;
 
                         // Назначаем скрипт DiamondCollector к алмазу
-                        DiamondCollector diamondCollector = diamond.AddComponent<DiamondCollector>();
-                        diamondCollector.targetScore = targetScore; // Передаем целевое количество очков
-
-                        // Увеличиваем целевое количество очков
-                        targetScore++;
+                        
                     }
                 }
             }
