@@ -20,8 +20,6 @@ public class Tile_generator : MonoBehaviour
     // Seed для фиксированной генерации случайных чисел
     public int randomSeed = 1234834; // Измените это значение по вашему желанию
 
-    private int targetScore = 1; // Целевое количество очков
-
     // Start is called before the first frame update
     void Start()
     {
