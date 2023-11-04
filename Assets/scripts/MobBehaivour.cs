@@ -3,19 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MobBehaivour : MonoBehaviour
+public class MobBehavior : MonoBehaviour
 {
     public Transform player; // Ссылка на игрока
     private NavMeshAgent navMeshAgent;
-    public AudioSource notice;
+    private AudioSource oneShotAudio;
+    private AudioSource loopedAudio;
+    public AudioClip oneShotSound; // Аудиоклип для однократного воспроизведения
+    public AudioClip loopingSound; // Аудиоклип для звука с повторением
     public float range = 5;
-    private bool soundPlayed = false; // Флаг, отслеживающий проигрывание звука
+
+    private bool isPlayingOneShot = false; // Флаг для однократного звука
+    private bool isPlayingLooped = false;  // Флаг для звука с повторением
 
     private void Start()
     {
         // Получаем компонент NavMeshAgent
         navMeshAgent = GetComponent<NavMeshAgent>();
-        notice = GetComponent<AudioSource>();
+
+        // Добавляем компоненты AudioSource для однократного и зацикленного звуков
+        oneShotAudio = gameObject.AddComponent<AudioSource>();
+        oneShotAudio.clip = oneShotSound;
+
+        loopedAudio = gameObject.AddComponent<AudioSource>();
+        loopedAudio.clip = loopingSound;
+        loopedAudio.loop = true; // Устанавливаем зацикливание
+
         // Убедитесь, что у игрока также есть компонент NavMeshAgent
         if (player == null || player.GetComponent<NavMeshAgent>() == null)
         {
@@ -26,14 +39,35 @@ public class MobBehaivour : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, есть ли игрок
-        if (!soundPlayed && Vector3.Distance(player.position, transform.position) <= range)
+        if (Vector3.Distance(player.position, transform.position) <= range)
         {
-            soundPlayed = true; // Помечаем, что звук был проигран
-            notice.Play();
             navMeshAgent.SetDestination(player.position);
-            print("sound");
+
+            if (!isPlayingOneShot)
+            {
+                oneShotAudio.Play();
+                isPlayingOneShot = true; // Устанавливаем флаг в true, чтобы не воспроизводить однократный звук снова
+            }
+
+            if (!isPlayingLooped)
+            {
+                loopedAudio.Play();
+                isPlayingLooped = true; // Устанавливаем флаг в true, чтобы не воспроизводить зацикленный звук снова
+            }
+        }
+        else
+        {
+            if (isPlayingOneShot)
+            {
+                oneShotAudio.Stop();
+                isPlayingOneShot = false;
+            }
+
+            if (isPlayingLooped)
+            {
+                loopedAudio.Stop();
+                isPlayingLooped = false;
+            }
         }
     }
 }
-
