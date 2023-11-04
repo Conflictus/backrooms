@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class player_movement : MonoBehaviour
 {
     private CharacterController m_controller;
     public float m_speed = 0.7f;
-    private int health = 100; // Текущее здоровье игрока
-    private int maxHealth = 100; // Максимальное здоровье игрока
+    public int health = 100; // Текущее здоровье игрока
     HealthManager healthManager; // Ссылка на компонент управления здоровьем
+    public TMP_Text healthText;
 
     private void Awake()
     {
@@ -25,11 +26,21 @@ public class player_movement : MonoBehaviour
         m_controller.Move(move_dir * m_speed);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy")) // Предполагается, что вражеские объекты имеют тег "Enemy"
         {
-            healthManager.TakeDamage(15); // Игрок теряет 15 здоровья при столкновении с врагом
+            health -= 15;
+            print(health);
+            healthText.text = "Здоровье: " + health + " / " + 100;
+            if (health <= 0)
+            {
+                health = 0;
+                // Загрузить сцену "Menu" или выполнить другие действия при окончании здоровья.
+                // Пример загрузки сцены:
+                UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
+            }
+             // Игрок теряет 15 здоровья при столкновении с врагом
         }
     }
 }
