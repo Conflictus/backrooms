@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class DiamondCollector : MonoBehaviour
+class DiamondCollector : MonoBehaviour
 {
     public static int collectedDiamonds = 0;
+    scenechanger sceneChanger;
     
-
     private void Start()
     {
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,8 +23,10 @@ public class DiamondCollector : MonoBehaviour
 
         if (collectedDiamonds >= 4)
         {
-            // Загрузить сцену "menu"
+            sceneChanger.currentProgress += 1;
+            sceneChanger.UpdateGameButtonAvailability();
             UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
+            
         }
     }
 }
