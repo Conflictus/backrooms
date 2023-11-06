@@ -10,11 +10,19 @@ public class player_movement : MonoBehaviour
     public int health = 100; // Текущее здоровье игрока
     HealthManager healthManager; // Ссылка на компонент управления здоровьем
     public TMP_Text healthText;
-
+    public int level = PlayerPrefs.GetInt("PlayerLevel");
+    void Start(){
+        Cursor.visible = false;
+    }
     private void Awake()
     {
+        
         m_controller = GetComponent<CharacterController>();
         healthManager = GetComponent<HealthManager>();
+        level++;
+        PlayerPrefs.SetInt("PlayerLevel", level);
+        PlayerPrefs.Save();
+        
     }
 
     private void FixedUpdate()
@@ -28,9 +36,9 @@ public class player_movement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy")) // Предполагается, что вражеские объекты имеют тег "Enemy"
+        if (other.CompareTag("Enemy")) 
         {
-            health -= 15;
+            health -= 10;
             print(health);
             healthText.text = "Здоровье: " + health + " / " + 100;
             if (health <= 0)
@@ -42,6 +50,10 @@ public class player_movement : MonoBehaviour
             }
              // Игрок теряет 15 здоровья при столкновении с врагом
         }
+    }
+
+    void Update() {
+        print(level);
     }
 }
     
