@@ -10,7 +10,7 @@ public class player_movement : MonoBehaviour
     public int health = 100; // Текущее здоровье игрока
     HealthManager healthManager; // Ссылка на компонент управления здоровьем
     public TMP_Text healthText;
-    public int level = ы0;
+    public int level = 0;
     void Start(){
         Cursor.visible = false;
     }
@@ -20,24 +20,7 @@ public class player_movement : MonoBehaviour
         m_controller = GetComponent<CharacterController>();
         healthManager = GetComponent<HealthManager>();
         
-        if (PlayerPrefs.HasKey("PlayerLevel"))
-        {
-        level = PlayerPrefs.GetInt("PlayerLevel");
-        }
-        else
-        {
-        // Если уровень не был сохранен, установите его в 0
-        level = 0;
-        }
-
-     if (level!= 9) {
-        level++;
-     }
-        
-
-    // Сохраните уровень в PlayerPrefs
-    PlayerPrefs.SetInt("PlayerLevel", level);
-    PlayerPrefs.Save();
+      
         
     }
 
