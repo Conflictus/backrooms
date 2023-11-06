@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
                             SaveLevelProgress();
 
                             // Загружаем сцену меню
-                            SceneManager.LoadScene("ьenu");
+                            SceneManager.LoadScene("menu");
                         }
                     }
                 }
