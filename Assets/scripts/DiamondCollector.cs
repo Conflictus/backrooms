@@ -2,38 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
-class DiamondCollector : MonoBehaviour
+public class DiamondCollector : MonoBehaviour
 {
+    public int levelIndex; // Установите номер уровня в инспекторе Unity
     public static int collectedDiamonds = 0;
-    scenechanger sceneChanger;
-    
-    private void Start()
-    {
-        
+    void Start() {
+        collectedDiamonds = 0;
     }
-
     private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("Player")) // Предполагается, что у игрока установлен тег "Player"
     {
-        Destroy(gameObject);
-        collectedDiamonds++;
-
-        if (collectedDiamonds >= 4)
+        if (other.CompareTag("Player"))
         {
-            sceneChanger.currentProgress += 1;
-            sceneChanger.UpdateGameButtonAvailability();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
-            
-        }
-    }
-}
+            // Сбор алмаза
+            Destroy(gameObject);
+            collectedDiamonds++;
 
-    // Можно добавить дополнительные функции для сохранения прогресса уровня
-    private void SaveLevelProgress()
-    {
-        // Реализуйте сохранение данных о прохождении уровня здесь
+            if (collectedDiamonds >= 4)
+            {
+                // Получаем ссылку на объект "SceneChanger" в сцене
+                scenechanger sceneChanger = GameObject.Find("SceneChanger").GetComponent<scenechanger>();
+
+                if (sceneChanger != null)
+                {
+                    
+                    SceneManager.LoadScene("menu");
+                }
+            }
+        }
     }
 }

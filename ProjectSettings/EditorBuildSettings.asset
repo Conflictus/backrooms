@@ -9,16 +9,34 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: 5d2dee644b588d448b5d1e6f3f8baf0e
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/SampleScene0.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/samplescene2.unity
+    path: Assets/Scenes/SampleScene1.unity
     guid: 47d4f5dfad8cbed40a7ed33f34053382
   - enabled: 1
-    path: Assets/Scenes/samplescene4.unity
+    path: Assets/Scenes/SampleScene2.unity
+    guid: b4303b3f0e2ff0945bba6b749478dd43
+  - enabled: 1
+    path: Assets/Scenes/SampleScene3.unity
     guid: 1278be059336f2143b53e56e2a10de50
   - enabled: 1
-    path: Assets/Scenes/samplescene3 1.unity
-    guid: b4303b3f0e2ff0945bba6b749478dd43
+    path: Assets/Scenes/SampleScene4.unity
+    guid: 985ba4360eedd7b4ba455f9ff78771c3
+  - enabled: 1
+    path: Assets/Scenes/SampleScene5.unity
+    guid: a4da431ec4ca5ee458e3274381c7cf9f
+  - enabled: 1
+    path: Assets/Scenes/SampleScene6.unity
+    guid: e2992fe01900d99459cdf945c39bc641
+  - enabled: 1
+    path: Assets/Scenes/SampleScene7.unity
+    guid: 1b9f5f1b7e53f17438836b3ac5318bcf
+  - enabled: 1
+    path: Assets/Scenes/SampleScene8.unity
+    guid: 518b23a66eb9df044ad62ba903af37e4
+  - enabled: 1
+    path: Assets/Scenes/SampleScene9.unity
+    guid: 2224cb20cfda0c749a9c258e7a366c8f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -7,50 +7,26 @@ using UnityEngine.UI;
 public class scenechanger : MonoBehaviour
 {
     public GameObject lockIcon; // Ссылка на объект иконки замка
-    public int currentProgress = 0;
-    public Button[] gameButtons;
-    public void LoadScene()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+    public Button[] gameButtons; // Количество разблокированных уровней, начиная с первого
 
-    public void LoadScene2()
-    {
-            SceneManager.LoadScene("samplescene2");
-    
-    }
-
-    public void LoadScene3()
-    {
-      
-            SceneManager.LoadScene("SampleScene3 1");
-        
-    }
-
-    public void LoadScene4()
+    public void LoadScene(int levelIndex)
     {
         
-            SceneManager.LoadScene("SampleScene4");
-        
+            string sceneName = "SampleScene" + levelIndex;
+            SceneManager.LoadScene(sceneName);
     }
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        UpdateGameButtonAvailability();
-    }
-    public void UpdateGameButtonAvailability()
-{
-    for (int i = 0; i < gameButtons.Length; i++)
-    {
-        gameButtons[i].interactable = (i <= currentProgress);
-    }
-}
-    // Update is called once per frame
-    void Update()
-    {
+        
 
+        
     }
+
+    private void UpdateButtonInteractivity()
+    {
+       
+    }
+
+    
 }
