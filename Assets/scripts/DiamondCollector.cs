@@ -23,27 +23,14 @@ public class DiamondCollector : MonoBehaviour
             if (collectedDiamonds >= 4)
             {
                 // Получаем ссылку на объект "SceneChanger" в сцене
-                          if (PlayerPrefs.HasKey("PlayerLevel"))
-                            {   
-                            PM.level = PlayerPrefs.GetInt("PlayerLevel");
-                        }
-                        else
-                    {
-       
-                        PM.level = 0;
-                    }
-
+                          
                     if (PM.level!= 9) {
-                         PM.level++;
+                    PM.level++;
                     }
-        
-
-    
-                        PlayerPrefs.SetInt("PlayerLevel", PM.level);
-                        PlayerPrefs.Save();
-                
+                    PlayerPrefs.SetInt("PlayerLevel", PM.level);
+                    PlayerPrefs.Save();
                     SceneManager.LoadScene("menu");
-                
+                    
             }
         }
     }

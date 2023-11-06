@@ -20,7 +20,21 @@ public class player_movement : MonoBehaviour
         m_controller = GetComponent<CharacterController>();
         healthManager = GetComponent<HealthManager>();
         
-      
+        if (PlayerPrefs.HasKey("PlayerLevel"))
+        {
+        level = PlayerPrefs.GetInt("PlayerLevel");
+        }
+        else
+        {
+        // Если уровень не был сохранен, установите его в 0
+        level = 0;
+        }
+
+        
+        
+
+    // Сохраните уровень в PlayerPrefs
+    
         
     }
 

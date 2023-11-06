@@ -20,19 +20,19 @@ public class scenechanger : MonoBehaviour
         {
             gameButtons[i].interactable = false;
         }
+        
+    }
+    private void Start()
+    {
         int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
 
-        if (playerLevel > 1)
+        if (playerLevel >= 1)
         {
             for (int i = 1; i <= playerLevel; i++)
             {
                 gameButtons[i].interactable = true;
             }
         }
-    }
-    private void Start()
-    {
-        
         Cursor.visible = true;
     }
 
@@ -40,6 +40,10 @@ public class scenechanger : MonoBehaviour
     {
        
     }
-
+    private void OnApplicationQuit()
+    {
+        // Очистите PlayerPrefs при закрытии игры
+        PlayerPrefs.DeleteAll();
+    }
     
 }
