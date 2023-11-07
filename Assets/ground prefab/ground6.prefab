@@ -245,9 +245,10 @@ GameObject:
   - component: {fileID: 4170675356078535820}
   - component: {fileID: 4483947149756439615}
   - component: {fileID: 4028065786753078198}
+  - component: {fileID: 1608937335511659202}
   m_Layer: 0
   m_Name: wall1
-  m_TagString: Untagged
+  m_TagString: wall1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,6 +355,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1608937335511659202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985290020732123611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb55e7a3300d61479b857691e908cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6255630894746694475
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,9 +486,10 @@ GameObject:
   - component: {fileID: 3802878489114042095}
   - component: {fileID: 7141515423686281902}
   - component: {fileID: 6764957270937799814}
+  - component: {fileID: 4248152637280454072}
   m_Layer: 0
   m_Name: wall2
-  m_TagString: Untagged
+  m_TagString: wall1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,3 +596,15 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4248152637280454072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911993720735412403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb55e7a3300d61479b857691e908cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
